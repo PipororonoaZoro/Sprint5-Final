@@ -11,6 +11,7 @@ import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import heroRoutes from './routes/heroRoutes.mjs';
 
 
 const app = express();
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/api', heroRoutes);
 
 // Rutas de pruebas para ver que todo esta funcionando(no me odie por mis errores profe)
 

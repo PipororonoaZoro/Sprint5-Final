@@ -1,0 +1,16 @@
+<h2>Panel de Superhéroes</h2>
+<p>Aqui tienes la lista de personajes recuperados de la base de datos.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px;"><% heroes.forEach(hero => { %>
+    <div style="border: 1px solid #ccc; padding: 10px; border-radius: 5px; background-color: #f9f9f9;">
+        <h3><%= hero.nombreSuperheroe %></h3>
+        <p><strong>Identidad:</strong> <%= hero.nombreReal %></p>
+        <p><strong>Origen:</strong> <%= hero.planetaOrigen %></p>
+        <p><strong>Poderes:</strong> <%= hero.poderes.join(', ') %></p>
+    </div>
+    <% }) %>
+</div>
+
+<% if (heroes.length ===0) { %>
+    <p>No se encontraron héroes en la base de datos. Sumate y agrega el primero</p>
+<% } %>
